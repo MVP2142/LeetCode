@@ -3,18 +3,24 @@ package com.tan.leetcode.algorithm;
 /**
  * Implement atoi which converts a string to an integer.
  * <p>
- * The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.
+ * The function first discards as many whitespace characters as necessary until the first non-whitespace character
+ * is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many
+ * numerical digits as possible, and interprets them as a numerical value.
  * <p>
- * The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.
+ * The string can contain additional characters after those that form the integral number, which are ignored and
+ * have no effect on the behavior of this function.
  * <p>
- * If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.
+ * If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence
+ * exists because either str is empty or it contains only whitespace characters, no conversion is performed.
  * <p>
  * If no valid conversion could be performed, a zero value is returned.
  * <p>
  * Note:
  * <p>
  * Only the space character ' ' is considered as whitespace character.
- * Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (231 − 1) or INT_MIN (−231) is returned.
+ * Assume we are dealing with an environment which could only store integers within the 32-bit signed integer
+ * range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (231 − 1)
+ * or INT_MIN (−231) is returned.
  * Example 1:
  * <p>
  * Input: "42"
@@ -79,8 +85,8 @@ public class StringToIntegerAtoi {
             if (l * sign < Integer.MIN_VALUE) {
                 return Integer.MIN_VALUE;
             }
-            return (int)( l * sign);
-        } catch(Exception e) {
+            return (int) (l * sign);
+        } catch (Exception e) {
             if (sign > 0) {
                 return Integer.MAX_VALUE;
             }
@@ -88,8 +94,39 @@ public class StringToIntegerAtoi {
         }
     }
 
+    public static int myAtoi2(String str) {
+        if (str == null) {
+            return 0;
+        }
+        str = str.trim();
+        if (str.length() == 0) {
+            return 0;
+        }
+        int index = 0;
+        int result = 0;
+        int sign = 1;
+        if (str.charAt(index) == '+') {
+            index++;
+        } else if (str.charAt(index) == '-') {
+            sign = -1;
+            index++;
+        }
+        while (index < str.length() && str.charAt(index) >= '0' && str.charAt(index) <= '9') {
+            if (sign > 0 && (result > Integer.MAX_VALUE / 10 || (result ==
+                    Integer.MAX_VALUE / 10 && str.charAt(index) > '7'))) {
+                return Integer.MAX_VALUE;
+            }
+            if (sign < 0 && (result > Integer.MAX_VALUE / 10 || (result ==
+                    Integer.MAX_VALUE / 10 && str.charAt(index) > '8'))) {
+                return Integer.MIN_VALUE;
+            }
+            result = result * 10 + str.charAt(index++) - '0';
+        }
+        return result * sign;
+    }
+
     public static void main(String[] args) {
-        System.out.println(myAtoi("-91283472332"));
+        System.out.println(myAtoi2("42"));
     }
 }
 
