@@ -52,7 +52,7 @@ package com.tan.leetcode.algorithm;
  * @author zhuojun.tian
  * @since 2019/2/20
  */
-public class StringToIntegerAtoi {
+public class  StringToIntegerAtoi {
 
     public static int myAtoi(String str) {
         if (str == null || str.length() == 0) {
