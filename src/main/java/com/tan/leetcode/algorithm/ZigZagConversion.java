@@ -18,10 +18,10 @@ public class ZigZagConversion {
         }
         int i = 0, j, gap = numRows - 2, size = s.length();
         while (i < size) {
-            for (j = 0 ; i < size && j < numRows ; j++) {
+            for (j = 0; i < size && j < numRows; j++) {
                 sbs[j].append(s.charAt(i++));
             }
-            for (j = gap ; i < size && j > 0 ; j--) {
+            for (j = gap; i < size && j > 0; j--) {
                 sbs[j].append(s.charAt(i++));
             }
         }
@@ -33,6 +33,6 @@ public class ZigZagConversion {
     }
 
     public static void main(String[] args) {
-        System.out.println(convert("PAHNAPLSIIGYIR", 3));
+        System.out.println(convert("PAHNAPLSIIGYIR" , 3));
     }
 }

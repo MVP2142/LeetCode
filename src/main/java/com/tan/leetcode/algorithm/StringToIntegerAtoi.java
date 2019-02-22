@@ -48,11 +48,10 @@ package com.tan.leetcode.algorithm;
  * Output: -2147483648
  * Explanation: The number "-91283472332" is out of the range of a 32-bit signed integer.
  * Thefore INT_MIN (−231) is returned.
- *
  * @author zhuojun.tian
  * @since 2019/2/20
  */
-public class  StringToIntegerAtoi {
+public class StringToIntegerAtoi {
 
     public static int myAtoi(String str) {
         if (str == null || str.length() == 0) {
