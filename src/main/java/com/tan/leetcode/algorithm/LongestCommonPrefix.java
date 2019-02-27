@@ -11,7 +11,7 @@ public class LongestCommonPrefix {
         }
         StringBuilder result = new StringBuilder();
         int minLength = minLength(strs);
-        for (int i = 0 ; i < minLength ; i++) {
+        for (int i = 0; i < minLength; i++) {
             if (theSame(strs, i)) {
                 result.append(strs[0].charAt(i));
             } else {
@@ -23,7 +23,7 @@ public class LongestCommonPrefix {
 
     private static int minLength(String[] strs) {
         int n = strs[0].length();
-        for (int i = 1 ; i < strs.length ; i++) {
+        for (int i = 1; i < strs.length; i++) {
             n = n < strs[i].length() ? n : strs[i].length();
         }
         return n;
@@ -31,7 +31,7 @@ public class LongestCommonPrefix {
 
     private static boolean theSame(String[] strs, int k) {
         char c = strs[0].charAt(k);
-        for (int i = 1 ; i < strs.length ; i++) {
+        for (int i = 1; i < strs.length; i++) {
             if (strs[i].charAt(k) != c) {
                 return false;
             }
@@ -40,7 +40,7 @@ public class LongestCommonPrefix {
     }
 
     public static void main(String[] args) {
-        String[] strs = new String[]{"1flower","flow","flight"};
+        String[] strs = new String[]{"1flower", "flow", "flight"};
         System.out.println(longestCommonPrefix(strs));
     }
 }

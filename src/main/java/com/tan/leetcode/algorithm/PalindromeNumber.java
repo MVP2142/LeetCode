@@ -35,10 +35,7 @@ public class PalindromeNumber {
             reverse = reverse * 10 + origin % 10;
             origin /= 10;
         }
-        if (x == reverse) {
-            return true;
-        }
-        return false;
+        return x == reverse;
     }
 
     public static boolean isPalindrome2(int x) {
@@ -68,7 +65,7 @@ public class PalindromeNumber {
         if (v > x) {
             v /= 10;
         }
-        return v == x ? true : false;
+        return v == x;
     }
 
     public static void main(String[] args) {
