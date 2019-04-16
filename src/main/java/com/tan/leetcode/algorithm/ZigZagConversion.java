@@ -33,6 +33,6 @@ public class ZigZagConversion {
     }
 
     public static void main(String[] args) {
-        System.out.println(convert("PAHNAPLSIIGYIR" , 3));
+        System.out.println(convert("PAHNAPLSIIGYIR", 3));
     }
 }
