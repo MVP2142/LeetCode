@@ -22,7 +22,7 @@ public class ReverseLinkedList {
     }
 
     //普通循环
-    public ListNode reverseList1(ListNode head) {
+    public static ListNode reverseList1(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -39,7 +39,7 @@ public class ReverseLinkedList {
     }
 
     //普通循环-使用哨兵简化代码
-    public ListNode reverseList2(ListNode head) {
+    public static ListNode reverseList2(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
